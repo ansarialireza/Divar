@@ -1,9 +1,10 @@
+import time
 
-
-class test:
-        def __init__(self,a="Hello World"):
-                    self.a=a
-        def display(self):
-                    print(self.a)
-obj=test()
-obj.display()
+t_now=int(time.time())
+print(t_now)
+t_delay=t_now+88888888888888888888888
+print(t_delay)
+while t_now==int(time.time()):
+    #print(time.time())
+    pass
+print("end")
