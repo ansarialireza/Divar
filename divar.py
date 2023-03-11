@@ -1,54 +1,53 @@
+
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 import divar_url
-import functions
+import SQL
 
-url=divar_url.iran_url
-num_scroll=2
+url = divar_url.iran_url
+num_scroll = 1
 
 
-driver=webdriver.Chrome()
+driver = webdriver.Chrome()
 driver.get(url)
 driver.maximize_window()
-end_of_scroll=driver.execute_script('return document.body.scrollHeight')
+end_of_scroll = driver.execute_script('return document.body.scrollHeight')
 
-cars_list=[]
-sort_list=[]
+cars_list = []
 
-for i in range(0,num_scroll):
+
+for i in range(0, num_scroll):
     driver.execute_script('window.scrollTo(0,document.body.scrollHeight);')
     time.sleep(5)
-    my_scroll=driver.execute_script('return document.body.scrollHeight')
-    if my_scroll==end_of_scroll:
+    my_scroll = driver.execute_script('return document.body.scrollHeight')
+    if my_scroll == end_of_scroll:
         time.sleep(3)
-        driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/main/div/div[1]/div/button').click()
+        driver.find_element(
+            By.XPATH, '//*[@id="app"]/div[1]/main/div/div[1]/div/button').click()
         time.sleep(1)
-    end_of_scroll=my_scroll
-    text=driver.find_elements(By.CLASS_NAME,'kt-post-card__body')
+    end_of_scroll = my_scroll
+    text = driver.find_elements(By.CLASS_NAME, 'kt-post-card__body')
     for t in text:
-        cars_list.append(str(t.text))
+        text = str(t.text)
+        cars_list.append(text.split('\n'))
 
+    post_tilte = driver.find_elements(By.CLASS_NAME, 'kt-post-card__title')
+    post_description = driver.find_elements(
+        By.CLASS_NAME, 'kt-post-card__description')
 
-    post_tilte=driver.find_elements(By.CLASS_NAME,'kt-post-card__title')
-    post_description=driver.find_elements(By.CLASS_NAME,'kt-post-card__description')
-
-        
-
-
-
-
-for i in range(0,len(cars_list)):
-    print((cars_list[i]),'\n')
-
-print(len(cars_list))
-
+#insert data to sql
 driver.close()
-
-    
-
-
-
-
-
+print("driver was closed")
+'''for i in range(0,len(cars_list)):
+    print((cars_list[i]),'\n')
+'''
+"""
+for i in range(0,len(cars_list)):
+    print(cars_list[i][3])"""
+print(len(cars_list))
+print(cars_list)
+#SQL.insert_data(cars_list)
+# functions.write_file_text(cars_list)
 
