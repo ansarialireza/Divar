@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 import divar_url
-import SQL
+#import SQL
 
 url = divar_url.iran_url
 num_scroll = 1
