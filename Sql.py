@@ -1,0 +1,28 @@
+import mysql.connector
+
+def insert_to_database(val_list):
+    mydb=mysql.connector.connect(host='127.0.0.1',user='root',password='8569')
+    mycursor=mydb.cursor()
+
+
+    mycursor.execute("DROP DATABASE Divar")
+    mycursor.execute("create database Divar")
+    mycursor.execute("USE Divar")
+    mycursor.execute("ALTER DATABASE Divar CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci")
+    # database crated and use
+    # database craALTER DATABASE dbname CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_cise
+    mycursor.execute("CREATE TABLE Advertising (name text,mileage text,price text,location text)")
+    SQL="INSERT INTO Advertising (name,mileage,price,location) VALUES (%s,%s,%s,%s)"
+    # table and column was crated
+    
+    for i in val_list:# agahi haye 5 tayi hazf mishavand
+        if len(i) != 4:
+            val_list.remove(i)
+
+    for i in val_list:
+        mycursor.execute(SQL,i)
+    mydb.commit()
+    print("Your Divar information has been saved in the database")
+    mydb.close()
+
+

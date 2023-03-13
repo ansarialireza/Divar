@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 import divar_url
-#import SQL
+import Sql
 
 url = divar_url.iran_url
 num_scroll = 1
@@ -39,15 +39,7 @@ for i in range(0, num_scroll):
 
 #insert data to sql
 driver.close()
-print("driver was closed")
-'''for i in range(0,len(cars_list)):
-    print((cars_list[i]),'\n')
-'''
-"""
-for i in range(0,len(cars_list)):
-    print(cars_list[i][3])"""
 print(len(cars_list))
-print(cars_list)
-#SQL.insert_data(cars_list)
-# functions.write_file_text(cars_list)
+Sql.insert_to_database(cars_list)
+
 
