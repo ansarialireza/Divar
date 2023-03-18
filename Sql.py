@@ -8,18 +8,14 @@ def insert_to_database(val_list):
     mycursor.execute("DROP DATABASE Divar")
     mycursor.execute("create database Divar")
     mycursor.execute("USE Divar")
-    mycursor.execute("ALTER DATABASE Divar CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci")
     # database crated and use
     # database craALTER DATABASE dbname CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_cise
     mycursor.execute("CREATE TABLE Advertising (name text,mileage text,price text,location text)")
     SQL="INSERT INTO Advertising (name,mileage,price,location) VALUES (%s,%s,%s,%s)"
-    # table and column was crated
-    
-    for i in val_list:# agahi haye 5 tayi hazf mishavand
-        if len(i) != 4:
-            val_list.remove(i)
 
-    for i in val_list:
+    # table and column was crated
+    new_list=[x for x in val_list if len(x)==4]# just lenth 4
+    for i in new_list:
         mycursor.execute(SQL,i)
     mydb.commit()
     print("Your Divar information has been saved in the database")

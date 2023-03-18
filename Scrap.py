@@ -1,5 +1,4 @@
 
-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
@@ -7,7 +6,7 @@ import divar_url
 import Sql
 
 url = divar_url.iran_url
-num_scroll = 1
+num_scroll =50
 
 
 driver = webdriver.Chrome()
@@ -37,8 +36,8 @@ for i in range(0, num_scroll):
     post_description = driver.find_elements(
         By.CLASS_NAME, 'kt-post-card__description')
 
-#insert data to sql
 driver.close()
+#insert data to sql
 print(len(cars_list))
 Sql.insert_to_database(cars_list)
 
