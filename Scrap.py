@@ -5,8 +5,9 @@ import time
 import divar_url
 import Sql
 
+
 url = divar_url.iran_url
-num_scroll =50
+num_scroll =200
 
 
 driver = webdriver.Chrome()
@@ -40,5 +41,6 @@ driver.close()
 #insert data to sql
 print(len(cars_list))
 Sql.insert_to_database(cars_list)
+
 
 

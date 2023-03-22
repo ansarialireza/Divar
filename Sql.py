@@ -1,5 +1,5 @@
 import mysql.connector
-
+import data_cleaner
 def insert_to_database(val_list):
     mydb=mysql.connector.connect(host='127.0.0.1',user='root',password='8569')
     mycursor=mydb.cursor()
@@ -14,8 +14,9 @@ def insert_to_database(val_list):
     SQL="INSERT INTO Advertising (name,mileage,price,location) VALUES (%s,%s,%s,%s)"
 
     # table and column was crated
-    new_list=[x for x in val_list if len(x)==4]# just lenth 4
-    for i in new_list:
+    new_list=data_cleaner.convert_list(val_list)
+    end_list=[x for x in new_list if len(x)==4]# just lenth 4
+    for i in end_list:
         mycursor.execute(SQL,i)
     mydb.commit()
     print("Your Divar information has been saved in the database")

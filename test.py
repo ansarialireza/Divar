@@ -1,23 +1,10 @@
-import datetime
-import mysql.connector
-
-cnx = mysql.connector.connect(user='scott', database='employees')
-cursor = cnx.cursor()
-
-query = ("SELECT first_name, last_name, hire_date FROM employees "
-         "WHERE hire_date BETWEEN %s AND %s")
-
-hire_start = datetime.date(1999, 1, 1)
-hire_end = datetime.date(1999, 12, 31)
-
-cursor.execute(query, (hire_start, hire_end))
-
-for (first_name, last_name, hire_date) in cursor:
-  print("{}, {} was hired on {:%d %b %Y}".format(
-    last_name, first_name, hire_date))
-
-cursor.close()
-cnx.close()
-
-
-
+import data_cleaner
+b=[['220,000 khylwmtr', '560,000,000 twmn', 'dqyqy pysh dr khrmnshh'],['230,000 khylwmtr', '560,000,000 twmn', 'dqyqy pysh dr khrmnshh'],['200,000 khylwmtr', '560,000,000 twmn', 'dqyqy pysh dr khrmnshh']]
+for i in b:
+    #print(i[0])
+    a=data_cleaner.extracting_numbers(i[0])
+    c=data_cleaner.extracting_numbers(i[1])
+    i[0]=a
+    i[1]=c
+    #print(i[0])
+print(b)
