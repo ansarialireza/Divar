@@ -22,6 +22,20 @@ def search_by_price():
   sql="SELECT * FROM advertising WHERE Price BETWEEN %d AND %d" % (a,b)
   print_data(sql)
 
-#search_by_name()
-search_by_price()
+def menu():
+      print("Hi welcome to search menu!")
+      print("Please select the desired option by entering the number :")
+      print("1 : search by name ")
+      print("2 : search by price ")
+      print("3 : Exit")
+while(True):
+    menu()
+    state=input()
+    if state=='3':
+          print("God Bye")
+          break
+    elif state=='1':
+          search_by_name()
+    elif state=='2':
+          search_by_price()
 
