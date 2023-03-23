@@ -14,7 +14,7 @@ def convert_list(f_list):
             #print(j)
             a=unidecode(str(j))
             if a!='[]':
-              temp.append(a)#eroooorrrrrrrr
+              temp.append(a)#
         new_list.append(temp)
         del temp
   return new_list

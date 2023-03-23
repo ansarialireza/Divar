@@ -11,13 +11,12 @@ x=[]#input
 y=[]#output
 
 for i in range(0,len(result)):
-    x.append(result[i][1:3])
-    y.append(result[i][0])
+    x.append(result[i][0:2])
+    y.append(result[i][3])
 
 clf=tree.DecisionTreeClassifier()
 #clf=clf.fit(x,y)
 #new_data=[['pjw 206 typ 2, mdl 1399']]
 #answer=clf.predict(new_data)
-for i in result:
-    print(i)
+print(x[0])
 
