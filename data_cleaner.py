@@ -5,19 +5,20 @@ def convert_list(f_list):
 
   for i in f_list:
         if len(i) == 0:
-            print(i)
+            #print(i)
             f_list.remove(i)
+        i[1]=unidecode(extracting_numbers(i[1]))
+        i[2]=unidecode(extracting_numbers(i[2]))
+        """
         temp=[]
-        i[1]=extracting_numbers(i[1])
-        i[2]=extracting_numbers(i[2])
         for j in i:
             #print(j)
             a=unidecode(str(j))
             if a!='[]':
               temp.append(a)#
         new_list.append(temp)
-        del temp
-  return new_list
+        del temp"""
+  return f_list
   
 def extracting_numbers(input_str):
   import re
