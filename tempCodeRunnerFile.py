@@ -1,1 +1,0 @@
-SELECT * FROM advertising WHERE Price BETWEEN %s AND %s

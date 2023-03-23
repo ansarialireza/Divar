@@ -16,7 +16,5 @@ for i in range(0,len(result)):
 
 clf=tree.DecisionTreeClassifier()
 clf=clf.fit(x,y)
-new_data=[['pjw 206 typ 2, mdl 1399']]
-#answer=clf.predict(new_data)
-print(result)
+
 

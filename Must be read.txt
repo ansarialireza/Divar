@@ -1,0 +1,5 @@
+Hi
+Please install chrome version 111.0.5563.110
+
+To get more information from the divar site, increase the num_scroll ( Scrap.py line 10)
+  
