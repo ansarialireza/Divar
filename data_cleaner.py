@@ -12,7 +12,7 @@ def convert_list(f_list):
         """
         temp=[]
         for j in i:
-            #print(j)
+            #print(j)#this comment can change all the database
             a=unidecode(str(j))
             if a!='[]':
               temp.append(a)#
