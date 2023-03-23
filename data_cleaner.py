@@ -1,7 +1,7 @@
 def convert_list(f_list):
   from unidecode import unidecode
 
-  new_list=[]
+  #new_list=[]
 
   for i in f_list:
         if len(i) == 0:

@@ -7,7 +7,7 @@ import Sql
 
 
 url = divar_url.iran_url
-num_scroll =10
+num_scroll =10 # number of scroll
 
 
 driver = webdriver.Chrome()

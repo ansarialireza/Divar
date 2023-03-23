@@ -15,8 +15,8 @@ for i in range(0,len(result)):
     y.append(result[i][3])
 
 clf=tree.DecisionTreeClassifier()
-#clf=clf.fit(x,y)
-#new_data=[['pjw 206 typ 2, mdl 1399']]
+clf=clf.fit(x,y)
+new_data=[['pjw 206 typ 2, mdl 1399']]
 #answer=clf.predict(new_data)
 print(result)
 
