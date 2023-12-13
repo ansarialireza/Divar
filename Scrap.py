@@ -4,10 +4,17 @@ from selenium.webdriver.common.by import By
 import time
 import divar_url
 import Sql
+import test
+import right_align
+import remove_str
+import convert_num
+import write_to_Excel
+import strip
+import remove_none
 
 
 url = divar_url.iran_url
-num_scroll =10 # number of scroll
+num_scroll =20 # number of scroll
 
 
 driver = webdriver.Chrome()
@@ -40,7 +47,11 @@ for i in range(0, num_scroll):
 driver.close()
 #insert data to sql
 print(len(cars_list))
-Sql.insert_to_database(cars_list)
-
+cars_list=remove_none.remove_last_sublist(cars_list)
+cars_list=right_align.right_align_list(cars_list)
+cars_list=remove_str.remove_string_from_list(cars_list,'\u200c')
+cars_list=convert_num.convert_to_english_cars(cars_list)
+cars_list=strip.clean_data(cars_list)
+write_to_Excel.write_to_excel(cars_list)
 
 
